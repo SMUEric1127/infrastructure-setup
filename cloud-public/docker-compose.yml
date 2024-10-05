@@ -10,9 +10,11 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+    restart: always
 
   haproxy:
     image: haproxy:latest
     network_mode: host
     volumes:
       - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    restart: always
